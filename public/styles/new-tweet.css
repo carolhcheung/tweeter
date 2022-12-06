@@ -27,3 +27,27 @@
   resize: none;
   outline: none;
 }
+
+.text-area-header {
+  font-weight: bold;
+}
+
+.all-tweets {
+  border: 4px solid;
+  padding: 1em;
+
+}
+
+.tweet-header {
+  background-color: transparent;
+  display: flex;
+  justify-content: space-between;
+  height: 50px;
+}
+
+.tweet-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 50px;
+}

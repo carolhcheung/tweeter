@@ -51,7 +51,7 @@
 
   </nav>
 
-  <header>
+  <header class="main">
     <div>
       <img src="/images/profile-hex.png">
     </div>
@@ -64,7 +64,8 @@
   <!-- Page-specific (main) content here -->
   <main class="container">
     <section class="new-tweet">
-      <label for="tweet-text">What are you humming about?</label>
+      <br>
+      <label class="text-area-header" for="tweet-text">What are you humming about?</label>
       <form>
         <textarea class="textbox" name="text" id="tweet-text"></textarea>
         <div class="submitTweet">
@@ -73,25 +74,30 @@
         </div>
       </form>
     </section>
-
-    <!-- <section class="new-tweet">
-      <form>
-        <input type="text" style="width: 100%" placeholder="What are you humming about?">
-        <div class="submitTweet">
-          <button type="submit">TWEET</button>
-          <output name="counter" class="counter" for="tweet-text"><strong>140</strong></output>
-        </div>
-      </form>
-    </section> -->
-
-    <!-- <div>
-      <input type="text" style="width: 100%" placeholder="What are you humming about?">
-      <hr>
-    </div>
-    <div class="submitTweet">
-      <button type="submit" value="submit">TWEET</button>
-      <span><strong>140</strong></span>
-    </div> -->
+    <section class="all-tweets">
+      <article>
+        <header class="tweet-header">
+          <div>
+            <h4>Name</h4>
+          </div>
+          <div>
+            <h4>Username</h4>
+          </div>
+        </header>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusamus quis corrupti doloribus nulla
+          reprehenderit laboriosam? Ipsa voluptatem recusandae alias facere exercitationem quas, officia temporibus,
+          facilis, suscipit vitae quaerat natus hic.</p>
+        <hr>
+        <footer class="tweet-footer">
+          <h4>Days Ago</h4>
+          <div class="icons">
+            <i class="fa-solid fa-flag"></i>
+            <i class="fa-regular fa-retweet"></i>
+            <i class="fa-sharp fa-solid fa-heart"></i>
+          </div>
+        </footer>
+      </article>
+    </section>
   </main>
 
 </body>

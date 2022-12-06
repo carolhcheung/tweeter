@@ -1,6 +1,6 @@
-header {
+header.main {
   padding-top: 150px;
-  height: 550px;
+  height: 530px;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -8,3 +8,15 @@ header {
   background-color: #4a76b8;
   background-image: url("https://www.transparenttextures.com/patterns/asfalt-light.png");
 }
+
+/* header.tweet-header {
+  display: flex;
+  border: solid;
+  background-color: transparent;
+  height: 300px;
+  justify-content: flex-start;
+} */
+
+/* flex-direction: row;
+  justify-content: space-between;
+  align-items: flex end; */
