@@ -24,4 +24,6 @@
   width: 100%;
   border-width: 0 0 4px;
   background-color: transparent;
+  resize: none;
+  outline: none;
 }
