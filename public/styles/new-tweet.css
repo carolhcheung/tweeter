@@ -53,7 +53,7 @@
   height: 50px;
 }
 
-.icons-boxes {
+.icons {
   color: #4056A1;
 }
 
@@ -67,4 +67,8 @@
 
 .fa-sharp:hover {
   color: #C29200;
+}
+
+.fa-icon {
+  cursor: pointer;
 }
