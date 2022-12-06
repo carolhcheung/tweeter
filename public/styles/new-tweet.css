@@ -1,0 +1,27 @@
+.container {
+  width: 90%;
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  /* background-color: #8394af;
+  background-image: url("https://www.transparenttextures.com/patterns/asfalt-light.png"); */
+
+}
+
+.submitTweet {
+  display: flex;
+  justify-content: space-between;
+  font-family: "Bungee", cursive;
+}
+
+.submit-button {
+  color: #FFFFFF;
+  background-color: #4056A1;
+  border-color: #4056A1
+}
+
+.textbox {
+  width: 100%;
+  border-width: 0 0 4px;
+  background-color: transparent;
+}
