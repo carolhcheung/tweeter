@@ -1,35 +1,5 @@
-/*
- * Client-side JS logic goes here
- * jQuery is already loaded
- * Reminder: Use (and do all your DOM work in) jQuery's document ready function
- */
 
-const data = [
-  {
-    "user": {
-      "name": "Newton",
-      "avatars": "https://i.imgur.com/73hZDYK.png"
-      ,
-      "handle": "@SirIsaac"
-    },
-    "content": {
-      "text": "If I have seen further it is by standing on the shoulders of giants"
-    },
-    "created_at": 1461116232227
-  },
-  {
-    "user": {
-      "name": "Descartes",
-      "avatars": "https://i.imgur.com/nlhLi3I.png",
-      "handle": "@rd"
-    },
-    "content": {
-      "text": "Je pense , donc je suis"
-    },
-    "created_at": 1461113959088
-  }
-]
-
+//creates new tweet box when newTweet received
 const createTweetElement = function (object) {
   const $tweet = `
   <article class="tweets">
@@ -56,41 +26,48 @@ const createTweetElement = function (object) {
   </footer>
 </article>`
   return $tweet;
-}
+};
 
-
+//renders tweets from form input from html into into array of tweets for display
 const renderTweets = function (tweets) {
-
+  const allTweets = [];
   for (const tweet of tweets) {
 
     const $tweet = createTweetElement(tweet);
+    allTweets.push($tweet)
 
-    $(document).ready(function () {
-      $('#tweets-container').after($tweet); // to add it to the page so we can make sure it's got all the right elements, classes, etc.
-    });
   }
+  $('#tweets-container').html(allTweets.reverse());
+
+
   return;
 };
-renderTweets(data);
 
+//displays rendered tweet array in reverse, newest tweet on top
+const loadTweets = function () {
+
+  $.ajax('/tweets', { method: 'GET' })
+    .then(function (tweet) {
+      renderTweets(tweet)
+    });
+};
 
 $(document).ready(function () {
 
-  renderTweets(data);
+  loadTweets();
 
   $('.tweetForm').submit(function (event) {
     event.preventDefault();
-    $(this).serialize()
-    $.post("/tweets", $(this).serialize());
+
+    const tweet = $(this).serialize()
+
+    $.ajax({
+      type: 'POST',
+      url: '/tweets',
+      data: tweet,
+      success: function (data) {
+        loadTweets();
+      }
+    });
   });
-  // console.log("Handler for .submit() called.");
-  // $.ajax({
-  //   type: 'POST',
-  //   url: '/tweets',
-  //   data: $(this).serialize()
-  // });
 });
-
-
-
-console.log("handler for .ajax() called.")
