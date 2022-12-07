@@ -29,8 +29,9 @@ const data = [
     "created_at": 1461113959088
   }
 ]
+
 const createTweetElement = function (object) {
-  const markup = `
+  const $tweet = `
   <article class="tweets">
   <header class="tweet-header">
     <div class="user-avatar">
@@ -49,13 +50,14 @@ const createTweetElement = function (object) {
     <h6>${object.created_at}Days Ago</h6>
     <div class="icons">
       <i class="fa-solid fa-flag fa-icon"></i>
-      <i class="fa-regular fa-retweet fa-icon"></i>
+      <i class="fa-sharp fa-solid fa-retweet fa-icon"></i>
       <i class="fa-sharp fa-solid fa-heart fa-icon"></i>
     </div>
   </footer>
 </article>`
-  return markup
+  return $tweet;
 }
+
 
 const renderTweets = function (tweets) {
 
@@ -64,9 +66,31 @@ const renderTweets = function (tweets) {
     const $tweet = createTweetElement(tweet);
 
     $(document).ready(function () {
-      $('#tweets-container').append($tweet); // to add it to the page so we can make sure it's got all the right elements, classes, etc.
+      $('#tweets-container').after($tweet); // to add it to the page so we can make sure it's got all the right elements, classes, etc.
     });
   }
   return;
 };
 renderTweets(data);
+
+
+$(document).ready(function () {
+
+  renderTweets(data);
+
+  $('.tweetForm').submit(function (event) {
+    event.preventDefault();
+    $(this).serialize()
+    $.post("/tweets", $(this).serialize());
+  });
+  // console.log("Handler for .submit() called.");
+  // $.ajax({
+  //   type: 'POST',
+  //   url: '/tweets',
+  //   data: $(this).serialize()
+  // });
+});
+
+
+
+console.log("handler for .ajax() called.")
