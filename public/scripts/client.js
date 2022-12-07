@@ -17,7 +17,7 @@ const createTweetElement = function (object) {
   </article>
   <hr>
   <footer class="tweet-footer">
-    <h6>${object.created_at}Days Ago</h6>
+    <h6>${timeago.format(object.created_at)}</h6>
     <div class="icons">
       <i class="fa-solid fa-flag fa-icon"></i>
       <i class="fa-sharp fa-solid fa-retweet fa-icon"></i>
@@ -43,24 +43,27 @@ const renderTweets = function (tweets) {
   return;
 };
 
-//displays rendered tweet array in reverse, newest tweet on top
+//function to display rendered tweet array in reverse, newest tweet on top
 const loadTweets = function () {
-
-  $.ajax('/tweets', { method: 'GET' })
-    .then(function (tweet) {
-      renderTweets(tweet)
-    });
+  //gets newtweets from /tweets database and rendersTweets
+  $.ajax({
+    type: "GET",
+    url: "/tweets",
+    success: function (tweet) {
+      renderTweets(tweet);
+    }
+  });
 };
 
 $(document).ready(function () {
-
+  //load existing allTweets
   loadTweets();
-
+  //avoid reloading of page when submit tweet
   $('.tweetForm').submit(function (event) {
     event.preventDefault();
-
+    //serializes tweet data from html to 
     const tweet = $(this).serialize()
-
+    //POST new tweet data to /tweets and call loadTweets to display tweets
     $.ajax({
       type: 'POST',
       url: '/tweets',
@@ -69,5 +72,9 @@ $(document).ready(function () {
         loadTweets();
       }
     });
+
+    //clears textarea and resets counter after submitting
+    this.reset();
+    $('.counter').text(140)
   });
 });
