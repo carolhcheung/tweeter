@@ -3,33 +3,40 @@
   align-self: center;
   display: flex;
   flex-direction: column;
-  /* background-color: #8394af;
-  background-image: url("https://www.transparenttextures.com/patterns/asfalt-light.png"); */
-
 }
 
 article.tweets {
-  border-color: #8d887d;
+  background-color: #c1c1c2;
+  border: 4px solid;
+  padding: 1em;
+  margin: 20px;
+}
+
+article.tweets:hover {
   border: 4px solid;
   padding: 1em;
   margin: 20px;
   box-shadow: 5px 5px #949494;
 }
 
-.submitTweet {
+div.submitTweet {
   display: flex;
   justify-content: space-between;
   font-family: "Bungee", cursive;
 }
 
-.submit-button {
+button.submit-button {
   color: #FFFFFF;
-  background-color: #4056A1;
-  border-color: #4056A1;
+  background-color: #343f66;
+  border-color: #343f66;
   margin: 20px;
 }
 
-.textbox {
+button.submit-button:hover {
+  box-shadow: 5px 5px #949494;
+}
+
+textarea.textbox {
   width: 100%;
   border-width: 0 0 4px;
   background-color: transparent;
@@ -37,32 +44,30 @@ article.tweets {
   outline: none;
 }
 
-.text-area-header {
+label.textarea-header {
   font-weight: bold;
 }
 
-
-.tweet-header {
-  background-color: transparent;
+header.tweet-header {
   display: flex;
   justify-content: space-between;
   height: 50px;
   align-items: center;
 }
 
-.tweet-footer {
+footer.tweet-footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: 50px;
 }
 
-.tweeter-avatar {
+img.tweeter-avatar {
   height: 40px;
   width: 40px;
 }
 
-.user-avatar {
+div.user-avatar {
   display: flex;
   align-items: center;
 }
@@ -75,22 +80,22 @@ output.counterRed {
   color: #FF0000;
 }
 
-.icons {
-  color: #4056A1;
+div.icons {
+  color: #343f66;
 }
 
-.fa-solid:hover {
+i.fa-solid:hover {
   color: #C29200;
 }
 
-.fa-regular:hover {
+i.fa-regular:hover {
   color: #C29200;
 }
 
-.fa-sharp:hover {
+i.fa-sharp:hover {
   color: #C29200;
 }
 
-.fa-icon {
+i.fa-icon {
   cursor: pointer;
 }

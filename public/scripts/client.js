@@ -1,3 +1,9 @@
+//escapes script text function
+const escapeText = (str) => {
+  const div = document.createElement("div");
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+};
 
 //creates new tweet box when newTweet received
 const createTweetElement = function (object) {
@@ -13,11 +19,11 @@ const createTweetElement = function (object) {
     </div>
   </header>
   <article class="tweet-text">
-  ${object.content.text}
+  ${escapeText(object.content.text)}
   </article>
   <hr>
   <footer class="tweet-footer">
-    <h6>${timeago.format(object.created_at)}</h6>
+    <h5>${timeago.format(object.created_at)}</h5>
     <div class="icons">
       <i class="fa-solid fa-flag fa-icon"></i>
       <i class="fa-sharp fa-solid fa-retweet fa-icon"></i>
@@ -28,7 +34,7 @@ const createTweetElement = function (object) {
   return $tweet;
 };
 
-//renders tweets from form input from html into into array of tweets for display
+// enders tweets from form input from html into into array of tweets for display
 const renderTweets = function (tweets) {
   const allTweets = [];
   for (const tweet of tweets) {
@@ -39,7 +45,6 @@ const renderTweets = function (tweets) {
   }
   $('#tweets-container').html(allTweets.reverse());
 
-
   return;
 };
 
@@ -47,13 +52,15 @@ const renderTweets = function (tweets) {
 const loadTweets = function () {
   //gets newtweets from /tweets database and rendersTweets
   $.ajax({
-    type: "GET",
-    url: "/tweets",
+    type: 'GET',
+    url: '/tweets',
     success: function (tweet) {
       renderTweets(tweet);
     }
   });
 };
+
+
 
 $(document).ready(function () {
   //load existing allTweets
@@ -61,8 +68,14 @@ $(document).ready(function () {
   //avoid reloading of page when submit tweet
   $('.tweetForm').submit(function (event) {
     event.preventDefault();
+    const $tweetlength = $('#tweet-text').val().length
+    if ($tweetlength === 0 || $tweetlength > 140) {
+      return alert('Your message is either empty or exceeds 140 characters')
+    }
     //serializes tweet data from html to 
     const tweet = $(this).serialize()
+
+
     //POST new tweet data to /tweets and call loadTweets to display tweets
     $.ajax({
       type: 'POST',
