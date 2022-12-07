@@ -6,9 +6,9 @@ $(document).ready(function () {
     $(characterCounter).text(140 - currentLength);
 
     if (currentLength > 140) {
-      $(characterCounter).css('color', '#FF0000');
+      $(characterCounter).addClass('counterRed');
     } else {
-      $(characterCounter).css('color', '#545149');
+      $(characterCounter).removeClass('counterRed');
     }
   });
 });
