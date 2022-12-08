@@ -26,8 +26,18 @@ body {
   flex-direction: column;
 }
 
+@media only screen and (min-width: 768px) {
+  body {
+    display: flex;
+    flex-direction: row;
+  }
+  header.main {
+    margin-top: 175px;
+    margin-left: 50px;
+    margin-right: 50px;
+    padding: 1.5em;
+    justify-content: center;
+    flex: 1;
+  }
+}
 
-
-/*
- * Additional CSS can be defined below or in other CSS files, as per instructions
- */

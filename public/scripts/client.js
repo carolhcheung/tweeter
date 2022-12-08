@@ -1,4 +1,4 @@
-//escapes script text function
+//helper function to escape script text function
 const escapeText = (str) => {
   const div = document.createElement("div");
   div.appendChild(document.createTextNode(str));
@@ -61,20 +61,20 @@ const loadTweets = function () {
 };
 
 
-
 $(document).ready(function () {
   //load existing allTweets
   loadTweets();
+
   //avoid reloading of page when submit tweet
   $('.tweetForm').submit(function (event) {
     event.preventDefault();
+
     const $tweetlength = $('#tweet-text').val().length
     if ($tweetlength === 0 || $tweetlength > 140) {
-      return alert('Your message is either empty or exceeds 140 characters')
+      return $('.error-msg').css('visibility', 'visible');
     }
     //serializes tweet data from html to 
     const tweet = $(this).serialize()
-
 
     //POST new tweet data to /tweets and call loadTweets to display tweets
     $.ajax({
@@ -82,12 +82,13 @@ $(document).ready(function () {
       url: '/tweets',
       data: tweet,
       success: function (data) {
+        $('.error-msg').css('visibility', 'hidden');
+        $('.counter').text(140);
         loadTweets();
       }
     });
 
     //clears textarea and resets counter after submitting
     this.reset();
-    $('.counter').text(140)
   });
 });

@@ -41,6 +41,8 @@
     integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
     crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
 
+  <!-- Viewport Zoom-->
+  <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />  
 </head>
 
 <body>
@@ -49,10 +51,11 @@
     <span class="logo">tweeter</span>
     <div class="newTweet">
       <span><strong>Write</strong> a new tweet</span>
-      <i class="fa-solid fa-angles-down" style="color:red"></i>
+      <i class="fa-solid fa-angles-down" style="color:#C29200"></i>
     </div>
 
   </nav>
+
 
   <header class="main">
     <div>
@@ -64,12 +67,16 @@
   </header>
 
   <!-- Page-specific (main) content here -->
-  <main class="container">
+  
+    <main class="container">
     <section class="new-tweet">
       <br>
       <label class="textarea-header" for="tweet-text">What are you humming about?</label>
       <form class="tweetForm" method="post" name="text-form">
-        <textarea id="tweet-text" class="textbox" name="text"></textarea>
+        <div class="textarea-div">
+          <textarea id="tweet-text" class="textbox" name="text"></textarea>
+          <h5 class="error-msg">⚠ Your message is either empty or exceeds 140 characters ⚠</h5>
+        </div>
         <div class="submitTweet">
           <button id="tweet-btn" class="submit-button" type="submit">Tweet</button>
           <output name="counter" class="counter" for="tweet-text">140</output>
@@ -77,31 +84,6 @@
       </form>
     </section>
     <section id="tweets-container">
-      <!-- <article class="tweets">
-        <header class="tweet-header">
-          <div class="user-avatar">
-            <img class="tweeter-avatar" src="https://i.imgur.com/nlhLi3I.png">
-            <h4 class="tweeter-name">Name</h4>
-          </div>
-          <div>
-            <h4>Username</h4>
-          </div>
-        </header>
-        <article class="tweet-text">
-          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusamus quis corrupti doloribus nulla
-            reprehenderit laboriosam? Ipsa voluptatem recusandae alias facere exercitationem quas, officia temporibus,
-            facilis, suscipit vitae quaerat natus hic.</p>
-        </article>
-        <hr>
-        <footer class="tweet-footer">
-          <h6>Days Ago</h6>
-          <div class="icons">
-            <i class="fa-solid fa-flag fa-icon"></i>
-            <i class="fa-regular fa-retweet fa-icon"></i>
-            <i class="fa-sharp fa-solid fa-heart fa-icon"></i>
-          </div>
-        </footer>
-      </article> -->
     </section>
   </main>
 
