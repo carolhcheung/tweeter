@@ -6,9 +6,9 @@ This repository is the starter code for the project: Students will fork and clon
 
 ## Final Product
 
-!["screenshot of main"](https://github.com/carolhcheung/tweeter/blob/master/public/images/screenshot1.PNG?raw=true)
-!["screenshot of error message"](https://github.com/carolhcheung/tweeter/blob/master/public/images/screenshot2.PNG?raw=true)
-!["screenshot of post completion"](https://github.com/carolhcheung/tweeter/blob/master/public/images/screenshot3.PNG?raw=true)
+!["screenshot of main"](https://github.com/carolhcheung/tweeter/blob/master/docs/tweet-main.PNG?raw=true)
+!["screenshot of error message"](https://github.com/carolhcheung/tweeter/blob/master/docs/tweet-error.PNG?raw=true)
+!["screenshot of post completion"](https://github.com/carolhcheung/tweeter/blob/master/docs/tweet-complete.PNG?raw=true)
 
 ## Getting Started
 
