@@ -39,14 +39,14 @@ button.submit-button:hover {
   box-shadow: 5px 5px #949494;
 }
 
-textarea.textbox {
+input.textbox {
   width: 100%;
   border-width: 0 0 4px;
   background-color: transparent;
   resize: none;
   outline: none;
 }
-textarea.textbox::placeholder {
+input.textbox::placeholder {
   font-weight: bold;
   color:#C29200;
 }
