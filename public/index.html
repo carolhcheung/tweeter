@@ -42,7 +42,7 @@
     crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
 
   <!-- Viewport Zoom-->
-  <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />  
 </head>
 
 <body>
@@ -53,10 +53,7 @@
       <span><strong>Write</strong> a new tweet</span>
       <i class="fa-solid fa-angles-down" style="color:#C29200"></i>
     </div>
-
   </nav>
-
-
   <header class="main">
     <div>
       <img src="/images/profile-hex.png">
@@ -68,13 +65,12 @@
 
   <!-- Page-specific (main) content here -->
   
-    <main class="container">
+  <main class="container">
     <section class="new-tweet">
       <br>
-      <label class="textarea-header" for="tweet-text">What are you humming about?</label>
       <form class="tweetForm" method="post" name="text-form">
         <div class="textarea-div">
-          <textarea id="tweet-text" class="textbox" name="text"></textarea>
+          <textarea id="tweet-text" class="textbox" name="text" placeholder="What are you humming about?"></textarea>
           <h5 class="error-msg">⚠ Your message is either empty or exceeds 140 characters ⚠</h5>
         </div>
         <div class="submitTweet">
@@ -84,6 +80,7 @@
       </form>
     </section>
     <section id="tweets-container">
+    <!-- New tweets get pushed into this section-->
     </section>
   </main>
 

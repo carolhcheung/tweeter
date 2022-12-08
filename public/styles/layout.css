@@ -32,12 +32,19 @@ body {
     flex-direction: row;
   }
   header.main {
-    margin-top: 175px;
+    margin-top: 180px;
     margin-left: 50px;
     margin-right: 50px;
     padding: 1.5em;
     justify-content: center;
     flex: 1;
   }
+  h5.user-handle {
+    color:#C29200;
+  }
+  h4.tweeter-name {
+    color:#343f66;
+  }
+  
 }
 

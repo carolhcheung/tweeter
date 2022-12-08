@@ -1,18 +1,20 @@
+//character counter under text box
+
 $(document).ready(function () {
-  const $input = $('#tweet-text')
-  const $counter = $('.counter')
+  const $input = $("#tweet-text");
+  const $counter = $(".counter");
 
 
-  $input.bind('keydown, keyup', function (e) {
+  $input.bind("keydown, keyup", function (e) {
 
-    const $tweetLength = $input.val().length
+    const $tweetLength = $input.val().length;
 
     $counter.text(140 - $tweetLength);
 
     if ($tweetLength > 140) {
-      $counter.addClass('counterRed')
+      $counter.addClass("counterRed");
     } else {
-      $counter.removeClass('counterRed')
+      $counter.removeClass("counterRed");
     }
 
   });

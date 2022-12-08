@@ -15,7 +15,7 @@ const createTweetElement = function (object) {
       <h4 class="tweeter-name">${object.user.name}</h4>
     </div>
     <div>
-      <h4>${object.user.handle}</h4>
+      <h5 class="user-handle">${object.user.handle}</h5>
     </div>
   </header>
   <article class="tweet-text">
@@ -43,7 +43,7 @@ const renderTweets = function (tweets) {
     allTweets.push($tweet)
 
   }
-  $('#tweets-container').html(allTweets.reverse());
+  $("#tweets-container").html(allTweets.reverse());
 
   return;
 };
@@ -52,8 +52,8 @@ const renderTweets = function (tweets) {
 const loadTweets = function () {
   //gets newtweets from /tweets database and rendersTweets
   $.ajax({
-    type: 'GET',
-    url: '/tweets',
+    type: "GET",
+    url: "/tweets",
     success: function (tweet) {
       renderTweets(tweet);
     }
@@ -62,28 +62,30 @@ const loadTweets = function () {
 
 
 $(document).ready(function () {
+
   //load existing allTweets
   loadTweets();
 
   //avoid reloading of page when submit tweet
-  $('.tweetForm').submit(function (event) {
+  $(".tweetForm").submit(function (event) {
     event.preventDefault();
 
-    const $tweetlength = $('#tweet-text').val().length
+    const $tweetlength = $("#tweet-text").val().length;
+
     if ($tweetlength === 0 || $tweetlength > 140) {
-      return $('.error-msg').css('visibility', 'visible');
+      return $(".error-msg").css("visibility", "visible");
     }
     //serializes tweet data from html to 
-    const tweet = $(this).serialize()
+    const tweet = $(this).serialize();
 
     //POST new tweet data to /tweets and call loadTweets to display tweets
     $.ajax({
-      type: 'POST',
-      url: '/tweets',
+      type: "POST",
+      url: "/tweets",
       data: tweet,
       success: function (data) {
-        $('.error-msg').css('visibility', 'hidden');
-        $('.counter').text(140);
+        $(".error-msg").css("visibility", "hidden");
+        $(".counter").text(140);
         loadTweets();
       }
     });
