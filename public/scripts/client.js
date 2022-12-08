@@ -66,6 +66,10 @@ $(document).ready(function () {
   //load existing allTweets
   loadTweets();
 
+  $(".writeTweet").click(function () {
+    $("#tweet-text").focus();
+  });
+
   //avoid reloading of page when submit tweet
   $(".tweetForm").submit(function (event) {
     event.preventDefault();
